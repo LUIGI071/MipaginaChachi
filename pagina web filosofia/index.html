@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Página con Biografías de Filósofos y Escritores">
+    <meta name="keywords" content="Filosofía, Escritores, Biografías, Libros">
+    <meta name="author" content="Escritores y Filósofos Célebres">
+    <title>Escritores y Filósofos Célebres</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <!-- Encabezado -->
+    <header class="main-header">
+        <h1 class="logo">Escritores y Filósofos Célebres</h1>
+        <button id="menuToggle" aria-label="Abrir menú">
+            <i class="fas fa-bars"></i>
+        </button>
+        <nav id="mainNav" class="main-nav" data-state="hidden">
+            <ul class="nav-list">
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#autores">Autores</a></li>
+                <li><a href="#libros">Libros</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Contenido principal -->
+    <main>
+        <!-- Sección de Autores -->
+        <section id="autores" class="philosophers-section">
+            <h2 class="section-title">Autores Destacados</h2>
+            <div class="image-carousel">
+                <div class="carousel-image">
+                    <img id="carouselImg" src="img/descartes.jpg" alt="René Descartes">
+                    <div class="image-overlay">
+                        <h3 id="authorName">René Descartes</h3>
+                        <a id="viewMoreLink" href="descartes.html">
+                            <button id="viewMoreBtn">Ver más</button>
+                        </a>
+                    </div>
+                </div>
+                <div class="carousel-controls">
+                    <button id="prevBtn" disabled>Anterior</button>
+                    <button id="nextBtn">Siguiente</button>
+                </div>
+            </div>
+        <section id="libros" class="books-section">
+            <h2 class="section-title">Libros Destacados</h2>
+            <div class="book-list" id="bookList">
+                <!-- Aquí se cargarán los libros dinámicamente -->
+            </div>
+        </section>
+
+        <div id="accessibilityTools">
+            <button id="toggleAccessibilityMenu" aria-label="Abrir menú de accesibilidad">Accesibilidad</button>
+            <div id="accessibilityMenu" class="hidden">
+                <button id="increaseFont" aria-label="Aumentar tamaño del texto">A+</button>
+                <button id="decreaseFont" aria-label="Disminuir tamaño del texto">A-</button>
+                <button id="toggleContrast" aria-label="Activar/Desactivar alto contraste">Contraste</button>
+                <button id="resetSettings" aria-label="Restablecer configuración">Restablecer</button>
+            </div>
+        </div>
+        
+            
+            
+    </main>
+
+    <!-- Pie de página -->
+    <footer class="main-footer">
+        <div class="footer-content">
+            <p>&copy; 2024 Escritores y Filósofos Célebres. Todos los derechos reservados.</p>
+            <ul class="footer-links">
+                <li><a href="#contacto">Contacto</a></li>
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#autores">Autores</a></li>
+                <li><a href="#libros">Libros</a></li>
+                <li><a href="#privacidad">Política de Privacidad</a></li>
+            </ul>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/carrusel.js"></script>
+    <script src="js/libros.js"></script>
+    <script src="js/accesibilidad.js"></script>
+</body>
+</html>

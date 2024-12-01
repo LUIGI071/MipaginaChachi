@@ -1,0 +1,400 @@
+:root {
+    --primary-bg: #222;
+    --secondary-bg: #333;
+    --tertiary-bg: #444;
+    --primary-text: #e0c097;
+    --secondary-text: #f4a261;
+    --accent-color: #4CAF50;
+    --hover-color: #45a049;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: var(--primary-bg);
+    color: var(--primary-text);
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+main {
+    flex-grow: 1; /* Asegura que el contenido ocupe el espacio restante */
+    padding-bottom: 120px; /* Espacio para que no se solape con el footer */
+}
+
+.main-header {
+    text-align: center;
+    padding: 1rem;
+    background-color: var(--secondary-bg);
+    color: var(--secondary-text);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background-color: var(--secondary-bg);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo {
+    font-size: 1.5rem;
+    color: var(--accent-color);
+    font-weight: bold;
+    margin: 0;
+}
+
+#menuToggle {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    color: var(--primary-text);
+    cursor: pointer;
+}
+
+.main-nav {
+    display: flex;
+    align-items: center;
+}
+
+.nav-list {
+    list-style: none;
+    display: flex;
+    gap: 1.5rem;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-list li a {
+    text-decoration: none;
+    color: var(--primary-text);
+    font-size: 1rem;
+    font-weight: bold;
+    padding: 0.5rem 1rem;
+    transition: color 0.3s ease, background-color 0.3s ease;
+}
+
+.nav-list li a:hover {
+    color: var(--accent-color);
+    background-color: var(--tertiary-bg);
+    border-radius: 5px;
+}
+
+.section-title {
+    text-align: center;
+    margin: 1rem 0;
+    color: var(--secondary-text);
+}
+
+.image-carousel {
+    max-width: 600px;
+    margin: 2rem auto;
+    position: relative; /* Necesario para posicionar los elementos superpuestos */
+    text-align: center;
+}
+
+.carousel-image {
+    width: 100%;
+    height: 700px; /* Tamaño fijo para todas las imágenes */
+    position: relative; /* Necesario para superponer contenido */
+    overflow: hidden; /* Evita que el contenido desborde */
+    border-radius: 8px;
+}
+
+.carousel-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Cubre todo el contenedor */
+    transition: filter 0.3s ease; /* Transición para el efecto difuminado */
+}
+
+.carousel-image:hover img {
+    filter: blur(4px) brightness(0.7); /* Difumina y oscurece la imagen */
+}
+
+.image-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    color: white;
+    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.7);
+    background: rgba(0, 0, 0, 0.3); /* Oscurece ligeramente el fondo */
+    transition: opacity 0.3s ease; /* Suaviza la transición de visibilidad */
+}
+
+.carousel-image:hover .image-overlay {
+    opacity: 1; /* Muestra el contenido al pasar el mouse */
+}
+
+.image-overlay h3 {
+    margin: 0;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.image-overlay button {
+    padding: 0.5rem 1rem;
+    background-color: var(--accent-color);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+}
+
+.image -overlay button:hover {
+    background-color: var(--hover-color);
+}
+
+.books-section {
+    margin: 2rem auto;
+    max-width: 80%;
+    text-align: center;
+}
+
+.book-list {
+    display: flex;
+    overflow: hidden; /* Oculta los elementos que salen del contenedor */
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+
+.book-item {
+    min-width: 150px; /* Tamaño mínimo de cada libro */
+    height: 200px; /* Tamaño fijo */
+    background-color: var(--tertiary-bg);
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: var(--primary-text);
+    padding: 1rem;
+    text-align: center;
+    font-size: 0.9rem;
+    transition: transform 0.3s ease;
+}
+
+.book-item img {
+    width: 100%;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 0.5rem;
+}
+
+.book-item:hover {
+    transform: scale(1.05); /* Efecto de agrandamiento al pasar el mouse */
+}
+
+/* Botón principal */
+#accessibilityTools {
+    position: fixed;
+    top: 1rem;
+    right: 1rem;
+    z-index: 1000;
+}
+
+#toggleAccessibilityMenu {
+    background-color: var(--accent-color);
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease;
+}
+
+#toggleAccessibilityMenu:hover {
+    background-color: var(--hover-color);
+}
+
+/* Menú de accesibilidad */
+#accessibilityMenu {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+    background-color: var(--secondary-bg);
+    border-radius: 4px;
+    padding: 0.5rem;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+#accessibilityMenu button {
+    background-color: var(--primary-bg);
+    color: var(--primary-text);
+    border: none;
+    padding: 0.5rem;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+}
+
+#accessibilityMenu button:hover {
+    background-color: var(--hover-color);
+}
+
+/* Ocultar el menú */
+.hidden {
+    display: none;
+}
+
+/* Contraste alto */
+.high-contrast {
+    background-color: black;
+    color: yellow;
+}
+
+.high-contrast * {
+    background-color: black !important;
+    color: yellow !important;
+    border-color: yellow !important;
+}
+
+#accessibilityMenu {
+    opacity: 0;
+    transform: scale(0.9);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    display: none; /* Oculto inicialmente */
+}
+
+#accessibilityMenu:not(.hidden) {
+    display: block; /* Se muestra cuando no tiene la clase hidden */
+    opacity: 1;
+    transform: scale(1);
+}
+
+/* Footer fijo */
+.main-footer {
+    background-color: #333;
+    color: #fff;
+    padding: 1rem 2rem;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+}
+
+.footer-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.footer-links {
+    list-style: none;
+    display: flex;
+    gap: 1rem;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-links li a {
+    color: #4CAF50;
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: color 0.3s ease;
+}
+
+.footer-links li a:hover {
+    color: #45a049;
+}
+
+/* Ajuste para pantallas pequeñas */
+@media (max-width: 768px) {
+    .main-header {
+        flex-direction: column; /* Cambia la dirección del flex para móviles */
+        align-items: flex-start; /* Alinea los elementos a la izquierda */
+        padding: 1rem; /* Espaciado reducido */
+    }
+
+    .logo {
+        margin-bottom: 1rem; /* Espacio entre el logo y el botón de menú */
+    }
+
+    .nav-list {
+        flex-direction: column; /* Cambia la dirección de la lista de navegación */
+        gap: 0.5rem; /* Reduce el espacio entre los enlaces */
+    }
+
+    .carousel-image {
+        height: 400px; /* Reduce la altura de las imágenes en el carrusel */
+    }
+
+    .carousel-image img {
+        height: auto; /* Permite que la imagen ajuste su altura */
+    }
+
+    .book-list {
+        flex-direction: column; /* Cambia a columna para móviles */
+        align-items: center; /* Centra los elementos */
+    }
+
+    .book-item {
+        width: 100%; /* Asegura que el libro ocupe el 100% del ancho */
+        max-width: 300px; /* Limita el ancho máximo */
+    }
+
+    .footer-links {
+        flex-direction: column; /* Cambia la dirección de los enlaces en el pie de página */
+        align-items: center; /* Centra los enlaces */
+    }
+
+    #accessibilityTools {
+        top: 0.5rem; /* Reduce la separación del botón de accesibilidad */
+        right: 0.5rem; /* Reduce la separación del lado derecho */
+    }
+
+    #accessibilityMenu {
+        width: 100%; /* Asegura que el menú de accesibilidad ocupe el 100% del ancho */
+        box-shadow: none; /* Elimina la sombra para móviles */
+    }
+}
+
+/* Ajustes para pantallas muy pequeñas */
+@media (max-width: 480px) {
+    .main-header {
+        padding: 0.5rem; /* Reduce aún más el espaciado */
+    }
+
+    .nav-list li a {
+        font-size: 0.9rem; /* Reduce el tamaño de fuente para enlaces */
+    }
+
+    .image-overlay h3 {
+        font-size: 1.2rem; /* Reduce el tamaño del texto en la superposición */
+    }
+
+    .image-overlay button {
+        font-size: 0.9rem; /* Reduce el tamaño del botón en la superposición */
+    }
+
+    .book-item {
+        font-size: 0.8rem; /* Reduce el tamaño de fuente en los libros */
+    }
+
+    #toggleAccessibilityMenu {
+        padding: 0.3rem 0.5rem; /* Reduce el espaciado del botón de accesibilidad */
+    }
+}
